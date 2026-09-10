@@ -13,7 +13,7 @@
 
 1. 确保浏览器已安装 [篡改猴（Tampermonkey）](https://www.tampermonkey.net/) 扩展
 2. 下载脚本**[点击安装](https://FarSummer.github.io/bilibili-subtitle-loader/B站本地字幕加载器-1.3.user.js)**
-3. 将脚本拖入篡改猴控制面板界面
+3. 油猴自动安装脚本
 
 ## 使用
 
