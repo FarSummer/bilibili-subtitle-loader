@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         B站本地字幕加载器
 // @namespace    http://tampermonkey.net/
-// @version      1.3
+// @version      1.4
 // @description  在B站视频页面加载本地ASS/SRT字幕文件
-// @author       南明远夏
+// @author       FarSummer
 // @match        https://www.bilibili.com/video/*
 // @match        https://www.bilibili.com/bangumi/play/*
 // @grant        none
@@ -235,27 +235,26 @@
 
         if (complaint && complaint.parentElement) {
             btn.style.cssText = `
-                background: transparent;
-                color: #fff;
+                background: #fb7299;
+                color: #ffffff;
                 border: none;
-                padding: 0 8px;
-                margin: 0;
+                border-radius: 4px;
+                padding: 4px 14px;
+                margin-left: 20px;
                 cursor: pointer;
                 font-size: 13px;
-                display: flex;
-                align-items: center;
-                height: 100%;
+                line-height: 28px;
+                height: 28px;
                 font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-                opacity: 0.85;
-                transition: opacity 0.2s;
+                transition: background 0.2s;
                 white-space: nowrap;
-                margin-right: 10px;
+                box-shadow: 0 2px 6px rgba(251, 114, 153, 0.4);
             `;
-            btn.onmouseover = function() { this.style.opacity = '1'; };
-            btn.onmouseout  = function() { this.style.opacity = '0.85'; };
+            btn.onmouseover = function() { this.style.background = '#fc8aad'; };
+            btn.onmouseout  = function() { this.style.background = '#fb7299'; };
 
-            complaint.parentElement.insertBefore(btn, complaint);
-            console.log('按钮已插入到稿件举报左侧');
+            complaint.parentElement.appendChild(btn);
+            console.log('按钮已插入到稿件举报右侧');
         } else {
             btn.style.cssText = `
                 position: fixed;
@@ -263,7 +262,7 @@
                 right: 20px;
                 z-index: 999999;
                 background: #fb7299;
-                color: #fff;
+                color: #ffffff;
                 border: none;
                 border-radius: 6px;
                 padding: 8px 16px;
