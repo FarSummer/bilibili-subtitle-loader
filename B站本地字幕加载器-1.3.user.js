@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         B站本地字幕加载器
 // @namespace    http://tampermonkey.net/
-// @version      1.4
+// @version      1.3
 // @description  在B站视频页面加载本地ASS/SRT字幕文件
 // @author       FarSummer
 // @match        https://www.bilibili.com/video/*
@@ -235,23 +235,25 @@
 
         if (complaint && complaint.parentElement) {
             btn.style.cssText = `
-                background: #fb7299;
-                color: #ffffff;
-                border: none;
-                border-radius: 4px;
-                padding: 4px 14px;
+                background: #fb7299 !important;
+                color: #ffffff !important;
+                border: none !important;
+                border-radius: 4px !important;
+                padding: 4px 14px !important;
                 margin-left: 20px;
                 cursor: pointer;
-                font-size: 13px;
-                line-height: 28px;
-                height: 28px;
+                font-size: 13px !important;
+                line-height: 28px !important;
+                height: 28px !important;
                 font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
                 transition: background 0.2s;
                 white-space: nowrap;
                 box-shadow: 0 2px 6px rgba(251, 114, 153, 0.4);
+                -webkit-appearance: none;
+                appearance: none;
             `;
-            btn.onmouseover = function() { this.style.background = '#fc8aad'; };
-            btn.onmouseout  = function() { this.style.background = '#fb7299'; };
+            btn.onmouseover = function() { this.style.setProperty('background', '#fc8aad', 'important'); };
+            btn.onmouseout  = function() { this.style.setProperty('background', '#fb7299', 'important'); };
 
             complaint.parentElement.appendChild(btn);
             console.log('按钮已插入到稿件举报右侧');
@@ -261,13 +263,13 @@
                 top: 80px;
                 right: 20px;
                 z-index: 999999;
-                background: #fb7299;
-                color: #ffffff;
-                border: none;
-                border-radius: 6px;
-                padding: 8px 16px;
+                background: #fb7299 !important;
+                color: #ffffff !important;
+                border: none !important;
+                border-radius: 6px !important;
+                padding: 8px 16px !important;
                 cursor: pointer;
-                font-size: 14px;
+                font-size: 14px !important;
                 font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
                 box-shadow: 0 2px 8px rgba(0,0,0,0.3);
             `;
